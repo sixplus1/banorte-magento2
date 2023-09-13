@@ -3,6 +3,7 @@
     "description": "Pasarela de pagos Banorte Comercio Electrónico Payworks 2.0 y 3D Secure para Magento 2 / Adobe Commerce",
     "type": "magento2-module",
     "license": "GPL-3.0",
+    "version": "1.0.2",
     "authors": [
         {
             "email": "contacto@sixplus1.com",
