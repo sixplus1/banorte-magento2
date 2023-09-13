@@ -12,7 +12,7 @@ Este módulo es la versión Open Source de nuestra integración a Comercio Elect
 
 - **VERSION PRO DISPONIBLE:** Si tiene alguna duda o desea contratar el servicio de instalación, personalización, certificación o bien usar la versión PRO de este módulo que incluye la compatiblidad con las úiltimas versiones de Adobe Commerce / Magento 2, integración a Cybersource de Banorte, personalización de MDD's, seguridad mejorada, uso de concentración empresrial de pagos de Banorte (CEP), auditoría del sitio y certificación con Banorte escribanos a [contacto@sixplus1.com](mailto:contacto@sixplus1.com) .
 - **SI SU APLICAION NO ES MAGENTO:** Si su sistema NO está basado en Magento 2/Adobe Commerce en SIXPLUS1 también tenemos integraciones para todo tipo de aplicaciones y desarrollos, encuentrenos en [https://www.sixplus1.com/](https://www.sixplus1.com/)
-- **3D Secure:** Todas las transacciones de este modulo Open Source usarn el motor 3DSecure provisto por Banorte
+- **3D Secure:** Todas las transacciones de este modulo Open Source usan el motor 3DSecure provisto por Banorte
 
 **IMPORTANTE: Esta integración de Magento 2 / Adobe Commerce Payworks 2 y 3D Secure por SIXPLUS1 (GRUPO SONET360 S.A. DE C.V.) es liberada de forma libre, gratuita y sin garantía de ningún tipo. Si usted integra y usa este módulo open source en su tienda Magento 2 / Adobe Commerce se hace completamente responsable de la operación, integración, resguardo, mantenimiento, actualización, seguridad, fallas, funcionamiento, certificación y uso del mismo. Ninguno de los programadores de SIXPLUS1 (GRUPO SONET360 S.A. DE C.V.) o GRUPO SONET360 S.A. DE C.V. asume alguna responsabilidad por el uso de este módulo. Ni tampoco si su comercio sale a producción usando este módulo sin haber llevado a cabo el proceso de certificación con Banorte y/o si su dominio no cuenta con una licencia para usar éste modulo por parte de SIXPLUS1**
 
@@ -54,5 +54,5 @@ En producción usar la opcion `--keep-generated`
 
 ## Licencia
 
-[Open Source License](LICENSE)
+[Open Source License](LICENSE.txt)
 
