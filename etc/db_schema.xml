@@ -1,0 +1,35 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    
+    <table name="sales_order" engine="innodb" resource="default" comment="Sixplus1 Banorte">
+        <column xsi:type="text" name="resultado_payw" nullable="true" comment="Resultado PayWorks"/>
+        <column xsi:type="int" name="id_afiliacion_payw" nullable="true" comment="No. de Afiliacion a que corresponde la transaccion respondida"/>
+        <column xsi:type="timestamp" name="fecha_rsp_cte_payw" nullable="true" comment="Fecha y hora en que la transaccio fue respondida al cliente"/>
+        <column xsi:type="text" name="codigo_aut_payw" nullable="true" comment="Codigo de autorizacion, solo para transaccion aprobada"/>
+        <column xsi:type="int" name="referencia_payw" nullable="true" comment="No. de Referencia asignada a la transaccion por Paworks"/>
+        <column xsi:type="text" name="texto_payw" nullable="true" comment="Texto con explicacion"/>
+        <column xsi:type="timestamp" name="fcha_req_cte_payw" nullable="true" comment="Fecha y hora en que la transaccio fue recibida del cliente"/>
+    </table>
+
+    <table name="sales_order_grid" engine="innodb" resource="default" comment="Sixplus1 Banorte">
+        <column xsi:type="text" name="resultado_payw" nullable="true" comment="Resultado PayWorks"/>
+        <column xsi:type="int" name="id_afiliacion_payw" nullable="true" comment="No. de Afiliacion a que corresponde la transaccion respondida"/>
+        <column xsi:type="timestamp" name="fecha_rsp_cte_payw" nullable="true" comment="Fecha y hora en que la transaccio fue respondida al cliente"/>
+        <column xsi:type="text" name="codigo_aut_payw" nullable="true" comment="Codigo de autorizacion, solo para transaccion aprobada"/>
+        <column xsi:type="int" name="referencia_payw" nullable="true" comment="No. de Referencia asignada a la transaccion por Paworks"/>
+        <column xsi:type="text" name="texto_payw" nullable="true" comment="Texto con explicacion"/>
+        <column xsi:type="timestamp" name="fcha_req_cte_payw" nullable="true" comment="Fecha y hora en que la transaccio fue recibida del cliente"/>
+    </table>
+
+    <table name="quote" engine="innodb" resource="default" comment="Sixplus1 Banorte">
+        <column xsi:type="text" name="resultado_payw" nullable="true" comment="Resultado PayWorks"/>
+        <column xsi:type="int" name="id_afiliacion_payw" nullable="true" comment="No. de Afiliacion a que corresponde la transaccion respondida"/>
+        <column xsi:type="timestamp" name="fecha_rsp_cte_payw" nullable="true" comment="Fecha y hora en que la transaccio fue respondida al cliente"/>
+        <column xsi:type="text" name="codigo_aut_payw" nullable="true" comment="Codigo de autorizacion, solo para transaccion aprobada"/>
+        <column xsi:type="int" name="referencia_payw" nullable="true" comment="No. de Referencia asignada a la transaccion por Paworks"/>
+        <column xsi:type="text" name="texto_payw" nullable="true" comment="Texto con explicacion"/>
+        <column xsi:type="timestamp" name="fcha_req_cte_payw" nullable="true" comment="Fecha y hora en que la transaccio fue recibida del cliente"/>
+    </table>
+
+    
+</schema>
+

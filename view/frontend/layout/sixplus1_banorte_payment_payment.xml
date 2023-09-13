@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<page layout="empty" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<body>
+		<referenceContainer name="content">
+			<block class="Sixplus1\Banorte\Block\Payment\Payment" name="payment.payment" template="Sixplus1_Banorte::payment/payment.phtml" cacheable="false" ttl="0"/>
+		</referenceContainer>
+	</body>
+</page>

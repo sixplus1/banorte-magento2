@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<payment>
+			<sixplus1_banorte>
+				<title>Sixplus1 Banorte</title>
+				<model>Sixplus1\Banorte\Model\Payment\Banorte</model>
+				<active>1</active>
+				<cctypes>AE,VI,MC,DI</cctypes>
+			</sixplus1_banorte>
+		</payment>
+	</default>
+</config>

@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © Grupo Sonet360 S.A. de C.V. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php 
+$increment_id = $block->incrementId(); 
+$cybersource_modo = $block->modoCybersource();
+if ($cybersource_modo != 'PRD') {
+    $_org_id = '1snn5n9w';
+}else{
+    $_org_id = 'k8vif92e';
+}
+?>
+<!-- Integracion Sixplus1 Banorte Open Source -->
+<!-- https://www.sixplus1.com -->
+<p style="background:url(https://h.online-metrix.net/fp/clear.png?org_id=<?php echo $_org_id;?>&amp;session_id=banorteixe<?php echo $increment_id;?>&amp;m=1)"></p>
+<img src="https://h.online-metrix.net/fp/clear.png?org_id=<?php echo $_org_id;?>&amp;session_id=banorteixe<?php echo $increment_id;?>&amp;m=2" alt="" >
+<object type="application/x-shockwave- flash" data="https://h.online-metrix.net/fp/fp.swf?org_id=<?php echo $_org_id;?>&amp;session_id=banorteixe<?php echo $increment_id;?>" width="1" height="1" id="thm_fp">
+<param name="movie" value="https://h.online-metrix.net/fp/fp.swf?org_id=<?php echo $_org_id;?>&amp;session_id=banorteixe<?php echo $increment_id;?>" /><div></div></object>
+<script src="https://h.online-metrix.net/fp/check.js?org_id=<?php echo $_org_id;?>&amp;session_id=banorteixe<?php echo $increment_id;?>" type="text/javascript"></script>

@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="payment">
+			<group id="sixplus1_banorte" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+				<label>Banorte</label>
+				<comment><![CDATA[
+                    <div class="config-heading">
+                        <div class="heading">
+                            <strong>BANORTE PAYWORKS 2 y 3D SECURE, DESARROLLADO POR SIXPLUS1 .</strong>
+							<br><br>
+                            <span class="heading-intro">
+                                Este módulo le permitirá integrar su sitio Magento 2 / Adobe Commerce a la pasarela de pagos de Banorte Payworks 2 y 3D Secure. Recuerde que antes de salir a producción es necesario que se ponga en contacto con el soporte técnico de Banorte para que lleve a cabo el proceso de certificación.<br><br>
+
+                                <span style="text-decoration:underline;">
+                                <strong> IMPORTANTE: </strong>Ninguno de los programadores de SIXPLUS1 o el representante legal de SIXPLUS1 asume alguna responsabilidad si su comercio (la presente instalación) sale a producción sin haber llevado a cabo el proceso de certificación con Banorte y/o si su dominio no cuenta con una licencia para usar éste modulo por parte de SIXPLUS1. Si usted esta usando la versión OpenSource del módulo es completamente responsable de su operación, resguardo, seguridad y actualizaciones, quitando toda responsabilidad a SIXPLUS1.  </span>
+                            </span>
+                        </div>
+						<br><br>
+                        <div class="button-container">
+                            <button class="button" onClick="window.open('https://via.banorte.com/PaywPlusComercios/','_blank')" type="button">
+                                <span class="banorte">Abrir Payworks</span>
+                            </button>
+                        </div>
+                    </div>
+                    <br>
+                 <a href="mailto:hola@sixplus1.com" target="_blank">Si tiene alguna duda o desea contratar el servicio de instalación, personalización, certificación o bien usar la versión PRO de este módulo que incluye: la compatiblidad con las úiltimas versiones de Magento 2 / Adobe Commerce, integración a Cybersource, personalización de MDD's, auditoría del sitio y certificación escribanos a contacto@sixplus1.com </a><br><br>]]></comment>
+
+				<field id="active" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+					<label>Enabled</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="text">
+					<label>Title</label>
+				</field>
+				<field id="cctypes" translate="label" type="multiselect" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Credit Card Types</label>
+                    <source_model>Magento\Payment\Model\Source\Cctype</source_model>
+                </field>
+				<field id="order_status" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+					<label>New Order Status</label>
+					<source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+				</field>
+				<field id="allowspecific" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="allowspecific">
+					<label>Payment from Applicable Countries</label>
+					<source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+				</field>
+				<field id="specificcountry" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label" type="multiselect">
+					<label>Payment from Applicable Countries</label>
+					<source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+					<can_be_empty>1</can_be_empty>
+				</field>
+				<field id="sort_order" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="60" translate="label" type="text">
+					<label>Sort Order</label>
+				</field>
+				<field id="instructions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="textarea">
+					<label>Instructions</label>
+				</field>
+
+
+				<field id="payworks_nombre_comercio" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="text">
+					<label>Nombre del Comercio (Tienda)</label>
+				</field>
+				<field id="payworks_ciudad_comercio" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
+					<label>Ciudad Matriz del Comercio</label>
+				</field>
+				<field id="payworks_id_afiliacion" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label" type="text">
+					<label>ID Afiliación</label>
+				</field>
+				<field id="payworks_usuario" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+					<label>Usuario Payworks</label>
+				</field>
+				<field id="payworks_usuario_clave" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="120" translate="label" type="text">
+					<label>Clave (Password) Payworks</label>
+				</field>
+				<field id="payworks_id_terminal" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="130" translate="label" type="text">
+					<label>ID Terminal</label>
+				</field>
+				<field id="payworks_modo" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="150" translate="label" type="select">
+					<label>Modo</label>
+					<source_model>Sixplus1\Banorte\Model\Config\Source\Payworksmodo</source_model>
+				</field>
+
+				<field id="payworks_cybersource_modo" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="160" translate="label" type="select">
+					<label>Cybersource Modo</label>
+					<source_model>Sixplus1\Banorte\Model\Config\Source\Cybersourcemodo</source_model>
+				</field>
+
+				<field id="payworks_3dsecure_habilitar" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="170" translate="label" type="select">
+					<label>Habilitar 3D Secure</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+
+			</group>
+		</section>
+	</system>
+</config>
