@@ -12,6 +12,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Sales\Model\ResourceModel\Order\Invoice\Collection as InvoiceCollection;
 use Magento\Sales\Model\Order\Invoice;
 use Magento\Framework\Controller\ResultFactory;
+use Sixplus1\Banorte\Api\Sixplus1RestClientInterfaceFactory;
 
 
 class Payment extends \Magento\Framework\View\Element\Template
@@ -31,7 +32,7 @@ class Payment extends \Magento\Framework\View\Element\Template
     protected $logger;
     protected $_invoiceService;
     protected $transactionBuilder;
-    protected $_httpClientFactory;
+    protected $Sixplus1RestClientFactory;
     protected $messageManager;
 
     protected $orderFactory;
@@ -61,7 +62,7 @@ class Payment extends \Magento\Framework\View\Element\Template
         \Magento\Framework\Message\ManagerInterface $messageManager,
         \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder,
         \Magento\Framework\Translate\Inline\StateInterface $inlineTranslation,
-        \Magento\Framework\HTTP\ZendClientFactory $httpClientFactory,
+        Sixplus1RestClientInterfaceFactory $Sixplus1RestClientFactory,
         \Magento\Sales\Model\OrderFactory $orderFactory,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Checkout\Model\SessionFactory $checkoutSessionFactory,
@@ -78,7 +79,7 @@ class Payment extends \Magento\Framework\View\Element\Template
         $this->messageManager = $messageManager;
         $this->transportBuilder = $transportBuilder;
         $this->inlineTranslation = $inlineTranslation;
-        $this->_httpClientFactory = $httpClientFactory;
+        $this->Sixplus1RestClientFactory = $Sixplus1RestClientFactory;
         $this->orderFactory = $orderFactory;
         $this->scopeConfig = $scopeConfig;
         $this->_checkoutSessionFactory = $checkoutSessionFactory->create();
@@ -109,12 +110,8 @@ class Payment extends \Magento\Framework\View\Element\Template
         $params = $this->getCheckoutSession()->getParametrosFinalesPayworks();
 
         try {
-            $client = $this->_httpClientFactory->create();
-            $client->setUri("https://via.banorte.com/payw2")
-                ->setParameterPost($params)
-                ->setMethod(\Zend_Http_Client::POST);
-            
-            $response = $client->request();
+            $client = $this->Sixplus1RestClientFactory->create();
+            $response = $client->sendRequest($params);
             $responseBody = $response->getBody();
             $headers = $response->getHeaders();
 

@@ -13,6 +13,7 @@ use Magento\Framework\App\Request\InvalidRequestException;
 use Magento\Sales\Model\ResourceModel\Order\Invoice\Collection as InvoiceCollection;
 use Magento\Sales\Model\Order\Invoice;
 use Magento\Framework\App\ResourceConnection;
+use Sixplus1\Banorte\Api\Sixplus1RestClientInterfaceFactory;
 
 class Payment extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
 {
@@ -26,7 +27,7 @@ class Payment extends \Magento\Framework\App\Action\Action implements CsrfAwareA
     protected $logger;
     protected $_invoiceService;
     protected $transactionBuilder;
-    protected $_httpClientFactory;
+    protected $Sixplus1RestClientFactory;
     protected $messageManager;
 
     protected $orderFactory;
@@ -60,7 +61,7 @@ class Payment extends \Magento\Framework\App\Action\Action implements CsrfAwareA
         \Magento\Framework\Message\ManagerInterface $messageManager,
         \Magento\Framework\Mail\Template\TransportBuilder $transportBuilder,
         \Magento\Framework\Translate\Inline\StateInterface $inlineTranslation,
-        \Magento\Framework\HTTP\ZendClientFactory $httpClientFactory,
+        Sixplus1RestClientInterfaceFactory $Sixplus1RestClientFactory,
         \Magento\Sales\Model\OrderFactory $orderFactory,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Checkout\Model\SessionFactory $checkoutSessionFactory,
@@ -80,7 +81,7 @@ class Payment extends \Magento\Framework\App\Action\Action implements CsrfAwareA
         $this->messageManager = $messageManager;
         $this->transportBuilder = $transportBuilder;
         $this->inlineTranslation = $inlineTranslation;
-        $this->_httpClientFactory = $httpClientFactory;
+        $this->Sixplus1RestClientFactory = $Sixplus1RestClientFactory;
         $this->orderFactory = $orderFactory;
         $this->scopeConfig = $scopeConfig;
         $this->_checkoutSessionFactory = $checkoutSessionFactory->create();
@@ -270,12 +271,8 @@ class Payment extends \Magento\Framework\App\Action\Action implements CsrfAwareA
 
                                        
                     try {
-                        $client = $this->_httpClientFactory->create();
-                        $client->setUri("https://via.banorte.com/payw2")
-                            ->setParameterPost($params)
-                            ->setMethod(\Zend_Http_Client::POST);
-                        
-                        $response = $client->request();
+                        $client = $this->Sixplus1RestClientFactory->create();
+                        $response = $client->sendRequest($params);
                         $responseBody = $response->getBody();
                         $headers = $response->getHeaders();
 
