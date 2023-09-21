@@ -20,7 +20,7 @@ class Sixplus1RestClient implements Sixplus1RestClientInterface {
      */
     public function __construct(
         \Psr\Log\LoggerInterface $logger,
-        \Magento\Framework\HTTP\ZendClientFactory $httpClientFactory
+        \Magento\Framework\HTTP\LaminasClientFactory $httpClientFactory
     ){
         $this->logger = $logger;
         $this->_httpClientFactory = $httpClientFactory;
@@ -38,7 +38,7 @@ class Sixplus1RestClient implements Sixplus1RestClientInterface {
             $client = $this->_httpClientFactory->create();
             $client->setUri(self::BANORTE_PAYWORKS)
                 ->setParameterPost($params)
-                ->setMethod(\Zend_Http_Client::POST);
+                ->setMethod(\Laminas\Http\Request::METHOD_POST);
             
             $response = $client->request();
             return $response;
