@@ -81,7 +81,7 @@ class Banorte extends \Magento\Payment\Model\Method\Cc
      */
     private $psrLogger;
 
-    protected $_httpClientFactory;
+    protected $Sixplus1RestClientFactory;
 
     protected $_invoiceService;
 
@@ -113,7 +113,8 @@ class Banorte extends \Magento\Payment\Model\Method\Cc
         \Psr\Log\LoggerInterface $logger_interface,
         \Magento\Checkout\Model\SessionFactory $checkoutSessionFactory,
         ResourceConnection $resourceConnection,
-        \Magento\Framework\Encryption\EncryptorInterface $encryptor
+        \Magento\Framework\Encryption\EncryptorInterface $encryptor,
+        Sixplus1RestClientInterfaceFactory $Sixplus1RestClientFactory
     ) {
         parent::__construct(
             $context,
@@ -127,7 +128,6 @@ class Banorte extends \Magento\Payment\Model\Method\Cc
             $localeDate
         );
 
-        $this->_httpClientFactory = $httpClientFactory;
         $this->orderFactory = $orderFactory;
         $this->orderFactory = $orderFactory;
         $this->scopeConfig = $scopeConfig;
@@ -140,6 +140,7 @@ class Banorte extends \Magento\Payment\Model\Method\Cc
         $this->_checkoutSessionFactory = $checkoutSessionFactory->create();
         $this->resourceConnection = $resourceConnection;
         $this->encryptor = $encryptor;
+        $this->Sixplus1RestClientFactory = $Sixplus1RestClientFactory;
     }
     
     /**
@@ -233,12 +234,8 @@ class Banorte extends \Magento\Payment\Model\Method\Cc
                 'IDIOMA_RESPUESTA'   => 'ES',
             );
             
-            $client = $this->_httpClientFactory->create();
-            $client->setUri("https://via.banorte.com/payw2")
-                   ->setParameterPost($params_payworks)
-                   ->setMethod(\Zend_Http_Client::POST);
-    
-            $response = $client->request();
+            $client = $this->Sixplus1RestClientFactory->create();
+            $response = $client->sendRequest($params);
             $responseBody = $response->getBody();
             $headers = $response->getHeaders();
          
